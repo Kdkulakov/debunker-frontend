@@ -14,6 +14,11 @@ export class FactPageComponent implements OnInit,OnDestroy {
 
   public fact: Fact;
   public factId: number;
+  public gradeQuality:number;
+  public gradeOrtho:number;
+  public gradeTonality:number;
+  public gradeToxicity:number;
+
   public commentsList: Comment[] = [];
   public imagesArr: string[] = [];
   private aSub: Subscription;
@@ -21,16 +26,26 @@ export class FactPageComponent implements OnInit,OnDestroy {
               private debunkerServise: DebunkerServise) {
     this.commentsList = [];
     this.imagesArr = [];
+    this.gradeQuality=0;
+    this.gradeOrtho=0;
+    this.gradeTonality=0;
+    this.gradeToxicity=0;
   }
 
   ngOnInit(): void {
     this.fact = this.utilService.getFact();
+    this.gradeQuality=this.fact.source_score;
+    this.gradeOrtho=this.fact.orthography;
+    this.gradeTonality=this.fact.tonality;
+    this.gradeToxicity=this.fact.toxicity;
+
     this.factId=Number(this.fact.id);
     console.log(' fact на анализ странице:');
     console.log(this.fact);
     this.aSub=this.debunkerServise.getCommentsByFactId(this.fact.id).subscribe(
       commentsList => {
         this.commentsList = commentsList.comments_items;
+
       });
     const cloneFact = Object.assign({}, this.fact.images_items);
     let dataSrc = [];

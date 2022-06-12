@@ -15,10 +15,10 @@
       <app-slider [images]="imagesArr">
       </app-slider>
       <app-grade
-        [gradeQuality]="100"
-        [gradeOrtho]="200"
-        [gradeTonality]="300"
-        [gradeToxicity]="400"
+        [gradeQuality]="this.gradeQuality"
+        [gradeOrtho]="this.gradeOrtho"
+        [gradeTonality]="this.gradeTonality"
+        [gradeToxicity]="this.gradeToxicity"
         model="2"
         [inputId]="this.factId">
       </app-grade>

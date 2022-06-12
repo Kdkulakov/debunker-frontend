@@ -78,6 +78,7 @@ export class ModalComponent implements OnInit, OnDestroy {
   onSourcesChange(event: any) {
     if (event !== null) {
       this.selected.value = this.findSelectedValueInItemsByLabel(event);
+      this.changeParam4(this.selected.value)
     }
   }
 

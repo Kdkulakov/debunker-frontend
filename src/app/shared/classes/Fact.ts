@@ -8,8 +8,9 @@ export class Fact {
   updated: any;
   ppublication_date: any;
   main_topic: any;
-  orpho_score: any;
-  emotional_score: any;
+  orthography: any;
+  tonality: any;
+  toxicity: any;
   source_score: any;
   is_deleted: any;
   url: string;
@@ -24,9 +25,6 @@ export class Fact {
     this.status = "";
     this.url = "";
     this.main_topic = undefined;
-    this.orpho_score = undefined;
-    this.emotional_score = undefined;
-    this.source_score = undefined;
     this.is_deleted = undefined;
     this.user = undefined;
     this.source = undefined;
@@ -34,6 +32,10 @@ export class Fact {
     this.ppublication_date = undefined;
     this.updated = undefined;
     this.images_items=[];
+    this.orthography = undefined;
+    this.tonality = undefined;
+    this.toxicity = undefined;
+    this.source_score = undefined;
     return this;
   }
 }

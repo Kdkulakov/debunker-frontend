@@ -29,10 +29,10 @@
         <app-slider [images]="imagesSlider">
         </app-slider>
         <app-grade
-          [gradeQuality]="10"
-          [gradeOrtho]="20"
-          [gradeTonality]="30"
-          [gradeToxicity]="40"
+          [gradeQuality]="this.gradeQuality"
+          [gradeOrtho]="this.gradeOrtho"
+          [gradeTonality]="this.gradeTonality"
+          [gradeToxicity]="this.gradeToxicity"
           [inputId]="mainTopic.id"
           model="1">
         </app-grade>
