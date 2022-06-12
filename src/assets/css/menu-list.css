@@ -1,6 +1,5 @@
 @import "roots.css";
 
-
 .menu-list {
 }
 
@@ -8,10 +7,6 @@
 @media (max-width: 770px) {
   .menu-list {
     list-style: none;
-    /* display: flex;
-     flex-wrap: wrap;
-     justify-content: flex-start;
-     flex-grow: 1;*/
   }
 }
 

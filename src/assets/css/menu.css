@@ -1,16 +1,5 @@
 @import "roots.css";
 
-:root {
-  --color-Primery-Etalon: #673ab7;
-  --color-Blue: #2215ff;
-  --color-Dark-Purple: #4903af;
-  --color-Tender-Purple: #9d56ff;
-
-  --color-Primery-Deep: #5b33a2;
-  --color-Deep-Purple-A200: #7C4DFF;
-}
-
-
 .menu {
   background-color:#5b33a2;
 }
@@ -51,15 +40,11 @@
 @media (min-width: 770px) {
   .menu {
     position: absolute;
-    overflow: auto;
     padding: 10px;
     width: 200px;
     height: 100vh;
-    top: 0; /* Расстояние от верхнего края */
-    bottom: 0; /* Расстояние снизу  */
-
-    /*border-right: 1px solid #231F20;
-    z-index: 99;*/
+    top: 0;
+    bottom: 0;
     box-shadow: 0 16px 38px -12px rgb(0 0 0 / 56%), 0 4px 25px 0 rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
   }
 

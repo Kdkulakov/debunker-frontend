@@ -2,7 +2,7 @@
 Проект создан с помощью Angular CLI и на Angular 13 
 
 ## Install DebunkerClient/Установить DebunkerClient
-Запустите `npm install`. (Но прежде, установите `node.js v13(и выше)` для использования пакетного менеджера npm)
+Запустите `npm install`. (Но прежде, установите `node.js` (рекомендую 16ую версии)
 
 ## Development DebunkerClient/Разворачивание DebunkerClient
 Запустите приложение командой `ng serve`. Перейдите по `http://localhost:4200/`. 
