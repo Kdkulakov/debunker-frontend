@@ -5,6 +5,7 @@ import {MainTopic} from "../classes/MainTopic";
 import {Source} from "../classes/Source";
 import {Fact} from "../classes/Fact";
 import {Comment, Resume} from "../../shared/interfaces";
+import {Pic} from "../classes/Pic";
 
 //  Сервис для взаимодействия фронта с серверной частью(т.е. бэком)
 @Injectable({
@@ -49,8 +50,9 @@ export class DebunkerServise {
     return this.http.get<Resume>(`/api/picture-resumes/${id}`)
   }
 
-  getImgs(): Observable<any>  {
-    return this.http.get<Resume>(`/api/picture-resumes/`)
+  //todo забирать проанализованные картинки
+  getImgs(): Observable<Pic>  {
+    return this.http.get<Resume>(`/api/picture/`)
   }
 
 

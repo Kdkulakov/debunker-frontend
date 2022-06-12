@@ -6,24 +6,6 @@
 
     <div class="main_div">
 
-      <!--      <div class="input_group">
-              <input formControlName="password"
-                     type="password"
-                     required>
-              <span class="highlight"></span>
-              <span class="bar"></span>
-              <label>Пароль</label>
-              <span class="red-text"
-                    *ngIf="form.get('password').invalid && form.get('password').touched">
-              <span *ngIf="form.get('password').errors['required']">Пароль не должен быть пустым</span>
-              <span *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength']['requiredLength']">
-                Пароль должен быть больше {{form.get('password').errors['minlength']['requiredLength']}} символов.
-                Сейчас {{form.get('password').errors['minlength']['actualLength']}}
-              </span>
-            </span>
-            </div>-->
-
-
       <mat-form-field class="stnd-max-width" appearance="fill">
         <mat-label>Email</mat-label>
         <input matInput
@@ -55,9 +37,10 @@
     <button mat-flat-button color="primary" type="submit" (click)="onSubmit()">Войти</button>
   </div>
 
-  <div style="padding-top: 5px">
+  <!--В дальнейшем реализовать, когда будет регестрация-->
+<!--  <div style="padding-top: 5px">
     Забыли пароль? <a routerLink="#">Напомнить</a>
-  </div>
+  </div>-->
   <div class="codeMind">
     Сделано командой CodeMind
   </div>

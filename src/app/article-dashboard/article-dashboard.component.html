@@ -24,14 +24,15 @@
           Статус: {{mainTopic.status}}</div>
       </div>
 
+      <!--Аналитический блок (шаблон слайдер картинок и шаблон с оценками НС-->
       <div class="analitics_content">
         <app-slider [images]="imagesSlider">
         </app-slider>
         <app-grade
           [gradeQuality]="10"
           [gradeOrtho]="20"
-          [gradeCitation]="30"
-          [gradeEmotional]="40"
+          [gradeTonality]="30"
+          [gradeToxicity]="40"
           [inputId]="mainTopic.id"
           model="1">
         </app-grade>
@@ -48,18 +49,13 @@
           <!-- Качество источника-->
           <ng-container matColumnDef="source_score">
             <th mat-header-cell *matHeaderCellDef>Качество источника</th>
-           <!-- <td mat-cell *matCellDef="let element">{{element.source_score}}%</td>-->
-          </ng-container>
-          <!-- Дата создания  -->
-         <ng-container matColumnDef="created">
-            <th mat-header-cell *matHeaderCellDef>Дата создания</th>
-            <td mat-cell *matCellDef="let element"> {{this.convertData(element.created)}}</td>
+            <td mat-cell *matCellDef="let element">{{element.source_score}}%</td>
           </ng-container>
           <!-- Дата публикации-->
-          <!-- <ng-container matColumnDef="ppublication_date">
+           <ng-container matColumnDef="ppublication_date">
             <th mat-header-cell *matHeaderCellDef>Дата публикации</th>
             <td mat-cell *matCellDef="let element">{{this.convertData(element.ppublication_date)}}</td>
-          </ng-container>-->
+          </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="titleColumns"></tr>
           <tr mat-row class="cursored"

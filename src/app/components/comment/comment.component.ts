@@ -19,7 +19,7 @@ export class CommentComponent implements OnInit, OnDestroy  {
   public factId: string;
 
   public commentStr: string;
-  public commentFiald: FormControl;
+  public commentField: FormControl;
 
   public aSub: Subscription;
 
@@ -29,12 +29,12 @@ export class CommentComponent implements OnInit, OnDestroy  {
   }
 
   ngOnInit(): void {
-    this.commentFiald = new FormControl(null);
+    this.commentField = new FormControl(null);
   }
 
   onSubmit(event: Event) {
     //this.aSub =
-    this.debunkerServise.createComment(this.factId, this.utilService.users[0].id, this.commentFiald.value).subscribe(
+    this.debunkerServise.createComment(this.factId, this.utilService.users[0].id, this.commentField.value).subscribe(
       response => {
         this.debunkerServise.getCommentsByFactId(this.factId).subscribe(
           response => {
@@ -46,7 +46,7 @@ export class CommentComponent implements OnInit, OnDestroy  {
         duration: this.utilService.CLOSE_TIME
       }),
     )
-    this.commentFiald.reset();
+    this.commentField.reset();
   }
 
   //Отписываемся от подписок, чтобы не было утечек памяти

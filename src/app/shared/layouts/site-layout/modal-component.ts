@@ -28,6 +28,7 @@ export class ModalComponent implements OnInit, OnDestroy {
   public param1: number = 0;
   public param2: number = 0;
   public param3: number = 0;
+  public param4: number = 0;
 
   public isDisabled: boolean;
   public srcImgBase64_list: string[] = []
@@ -138,9 +139,17 @@ export class ModalComponent implements OnInit, OnDestroy {
     }
     this.cheakActivateOk();
   }
+  changeParam4(param: any) {
+    if (param !== null && !this.isEmptyOrSpaces(param.toString())) {
+      this.param4 = 1;
+    } else {
+      this.param4 = 0;
+    }
+    this.cheakActivateOk();
+  }
   cheakActivateOk() {
     this.isDisabled = true;
-    if (this.param1 == 1 && this.param2 == 1 && this.param3 == 1) {
+    if (this.param1 == 1 && this.param2 == 1 && this.param3 == 1 && this.param4 == 1) {
       this.isDisabled = false;
     }
   }

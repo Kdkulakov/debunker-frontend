@@ -40,7 +40,7 @@
 
      <mat-form-field appearance="fill">
        <mat-label>Выберите источник</mat-label>
-       <mat-select [(ngModel)]="this.selected.value" [ngModelOptions]="{standalone: true}">
+       <mat-select [(ngModel)]="this.selected.value" [ngModelOptions]="{standalone: true}"  (blur)="changeParam4(this.selected.value)" required>
          <div *ngFor="let item of items">
            <mat-option [value]="item.value">{{item.label}}</mat-option>
          </div>

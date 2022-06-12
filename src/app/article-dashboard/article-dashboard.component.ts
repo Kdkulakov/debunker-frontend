@@ -38,7 +38,7 @@ export class ArticleDashboardComponent implements OnInit, AfterViewInit, OnDestr
 
   public isFactRoot = false;
 
-  public titleColumns: string[] = ['name', 'source_score', 'created'];
+  public titleColumns: string[] = ['name', 'source_score', 'ppublication_date'];
   public titleColumnImgs: string[] = ['base64', 'ppublication_date'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -119,11 +119,10 @@ export class ArticleDashboardComponent implements OnInit, AfterViewInit, OnDestr
           this.imagesSlider = dataSrc;
 
         });
-        this.debunkerServise.getImgs().subscribe(main => {
+        //todo
+        /*this.debunkerServise.getImgs().subscribe(main => {
           //this.imgs = [];
-          //todo
-
-        });
+        });*/
 
 
       }
@@ -167,11 +166,10 @@ export class ArticleDashboardComponent implements OnInit, AfterViewInit, OnDestr
           });
         this.imagesSlider = dataSrc;
 
-        this.debunkerServise.getImgs().subscribe(main => {
+        //todo
+        /*this.debunkerServise.getImgs().subscribe(main => {
           //this.imgs = [];
-          //todo
-
-        });
+        });*/
 
       });
     }

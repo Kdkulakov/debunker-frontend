@@ -75,12 +75,10 @@
 
 .grid-hover:hover{
   color:#d1b6ff !important;
- /* background-color: rgba(103, 58, 183, 0.58) !important;*/
   box-shadow: 5px 10px 15px rgb(136 108 180 / 92%) !important;
 }
 
 .grid-hover[status=red] :hover{
   color: #ff0038 !important;
-  /* background-color: rgba(103, 58, 183, 0.58) !important;*/
   box-shadow: 5px 10px 15px rgba(255, 0, 56, 0.92) !important;
 }
