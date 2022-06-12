@@ -32,7 +32,7 @@ export class AuthService {
       id: '1'
     }
     // асинхронный стрим rxjs
-    return this.http.post<DBToken>('/api/token/', user)
+    return this.http.post<DBToken>('http://127.0.0.1:8000/api/token/', user)
       .pipe(
         tap(
           (dbToken: DBToken) => {
