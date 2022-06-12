@@ -7,4 +7,8 @@ services:
         context: .
        ports:
            - "8080:80"
-       network_mode: bridge
+       networks:
+         - debunker-net
+networks:
+  debunker-net:
+    external: true
