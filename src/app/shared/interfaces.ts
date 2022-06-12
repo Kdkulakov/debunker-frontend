@@ -11,6 +11,18 @@ export interface Resume {
   user?: number;
   text?: string;
 }
+export interface MainResume extends Resume {
+  main_topic_id?: string;
+  main_topic_name?: string;
+  source?: string;
+  status?: string;
+}
+export interface FactResume extends Resume {
+  fact_id?: string;
+  fact_id_name?: string;
+  source?: string;
+  status?: string;
+}
 
 export interface Item {
   id?: any;

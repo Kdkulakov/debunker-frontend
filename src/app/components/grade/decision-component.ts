@@ -56,9 +56,12 @@ export class DecisionComponent implements OnInit, OnDestroy {
                 duration: this.utilService.CLOSE_TIME
               });
             },
-            error => this._snackBar.open('Что-то пошло не так. Решение не принято', 'Закрыть', {
+            error => {
+              //доработать
+              /*this._snackBar.open('Что-то пошло не так. Решение не принято', 'Закрыть', {
               duration: this.utilService.CLOSE_TIME
-            }),
+            })*/
+            },
           )
         }
         if (this.model === "2") {
@@ -68,21 +71,12 @@ export class DecisionComponent implements OnInit, OnDestroy {
                 duration: this.utilService.CLOSE_TIME
               });
             },
-            error => this._snackBar.open('Что-то пошло не так. Решение не принято', 'Закрыть', {
-              duration: this.utilService.CLOSE_TIME
-            }),
-          )
-        }
-        if (this.model === "3") {
-          this.debunkerServise.savePictureResumes(this.inputId, this.utilService.users[0].id, this.decisionForm.value.text).subscribe(
-            () => {
-              this._snackBar.open('Решение принято', 'Закрыть', {
-                duration: this.utilService.CLOSE_TIME
-              });
-            },
-            error => this._snackBar.open('Что-то пошло не так. Решение не принято', 'Закрыть', {
-              duration: this.utilService.CLOSE_TIME
-            }),
+             error => {
+               //доработать
+               /*this._snackBar.open('Что-то пошло не так. Решение не принято', 'Закрыть', {
+               duration: this.utilService.CLOSE_TIME
+             })*/
+             },
           )
         }
       },

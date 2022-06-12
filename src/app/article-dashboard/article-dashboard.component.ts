@@ -15,7 +15,6 @@ import {Subscription} from "rxjs";
 import {DebunkerServise} from "../shared/services/debunker.service";
 import {HttpClient} from "@angular/common/http";
 import {Img} from "../shared/interfaces";
-import {Pic} from "../shared/classes/Pic";
 
 
 @Component({
@@ -46,6 +45,10 @@ export class ArticleDashboardComponent implements OnInit, AfterViewInit, OnDestr
   public src: any;
   public images: any;
   public imgs: any;
+  public gradeQuality:number;
+  public gradeOrtho:number;
+  public gradeTonality:number;
+  public gradeToxicity:number;
 
   public imagesSlider: string[] = [];
 
@@ -63,6 +66,10 @@ export class ArticleDashboardComponent implements OnInit, AfterViewInit, OnDestr
               private activateRoute: ActivatedRoute) {
     this.facts = new MatTableDataSource<Fact>();
     this.imgs = new MatTableDataSource<Img>();
+    this.gradeQuality=0;
+    this.gradeOrtho=0;
+    this.gradeTonality=0;
+    this.gradeToxicity=0;
 
     this.imagesSlider = [];
     // Роутинг
@@ -105,6 +112,8 @@ export class ArticleDashboardComponent implements OnInit, AfterViewInit, OnDestr
   refreshTopic(id: string) {
     this.subscriptionRT = this.debunkerServise.getTopicById(id).subscribe(mt => {
       if (mt) {
+        //console.log(' Получение mt');
+        //console.log(mt);
         this.mainTopic = mt;
         this.maintopicId = this.mainTopic.id
         this.isAnalise = true;
@@ -118,6 +127,11 @@ export class ArticleDashboardComponent implements OnInit, AfterViewInit, OnDestr
             });
           this.imagesSlider = dataSrc;
 
+          // вот они ! Самые важные оценки!
+          this.gradeQuality=this.mainTopic.source_score;
+          this.gradeOrtho=this.mainTopic.orthography;
+          this.gradeTonality=this.mainTopic.tonality;
+          this.gradeToxicity=this.mainTopic.toxicity;
         });
         //todo
         /*this.debunkerServise.getImgs().subscribe(main => {
@@ -166,6 +180,11 @@ export class ArticleDashboardComponent implements OnInit, AfterViewInit, OnDestr
           });
         this.imagesSlider = dataSrc;
 
+        // вот они ! Самые важные оценки!
+        this.gradeQuality=this.mainTopic.source_score;
+        this.gradeOrtho=this.mainTopic.orthography;
+        this.gradeTonality=this.mainTopic.tonality;
+        this.gradeToxicity=this.mainTopic.toxicity;
         //todo
         /*this.debunkerServise.getImgs().subscribe(main => {
           //this.imgs = [];

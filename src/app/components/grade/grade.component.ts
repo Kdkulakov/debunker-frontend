@@ -11,7 +11,7 @@ import {DebunkerServise} from "../../shared/services/debunker.service";
   templateUrl: './grade.component.html',
   styleUrls: ['./grade.component.css']
 })
-export class GradeComponent implements OnInit,OnDestroy {
+export class GradeComponent implements OnInit, OnDestroy {
 
   public decisionField: string;
 
@@ -26,7 +26,7 @@ export class GradeComponent implements OnInit,OnDestroy {
   gradeToxicity: number;
 
   //вводим вид модели,для определения адреса урла
-  //1- главная новость,2- смежная новость, 3- смежная картинка
+  //1- главная новость,2- смежная новость(факт),
   @Input()
   public model: string;
   //вводим айди
@@ -42,45 +42,45 @@ export class GradeComponent implements OnInit,OnDestroy {
   constructor(public dialog: MatDialog,
               private debunkerServise: DebunkerServise,
               public utilService: UtilService) {
-    this.decisionField='';
+    this.decisionField = '';
   }
 
   ngOnInit(): void {
-
     if (this.model === "1") {
       //this.aSubDecisions=
-        this.debunkerServise.getMTDecisions(this.inputId).subscribe(
+      this.debunkerServise.getMTDecisions(this.inputId).subscribe(
         (resume) => {
-          this.decisionField=resume.text;
-        })
+          this.decisionField = resume.text;
+        },
+        error => {
+            //в дальнейшем доработать.
+        }
+      )
     }
     if (this.model === "2") {
       //this.aSubDecisions=
       this.debunkerServise.getFDecisions(this.inputId).subscribe(
         (resume) => {
-          this.decisionField=resume.text;
-        })
-    }
-    if (this.model === "3") {
-      //this.aSubDecisions=
-      this.debunkerServise.getPDecisions(this.inputId).subscribe(
-        (resume) => {
-          this.decisionField=resume.text;
-        })
+          this.decisionField = resume.text;
+        },
+        error => {
+          //в дальнейшем доработать.
+        }
+      )
     }
 
-    this.aSub=this.utilService.formData.subscribe( arr=>{
-      this.decisionField=arr[1];
+    this.aSub = this.utilService.formData.subscribe(arr => {
+      this.decisionField = arr[1];
     })
 
   }
 
   openModal() {
     let arr = [this.inputId, this.model]
-    console.log('=========== Проверка arr');
+    console.log('=========== Проверка arr при открытии');
     console.log(arr);
     // Открытие модального окна DecisionComponent
-    const dialogRef = this.dialog.open(DecisionComponent,{height:  'fit-content'});
+    const dialogRef = this.dialog.open(DecisionComponent, {height: 'fit-content'});
     dialogRef.afterOpened().subscribe(afterOpened => {
       this.utilService.setModalDataFromForm(arr);
     });

@@ -4,8 +4,7 @@ import {Observable} from "rxjs";
 import {MainTopic} from "../classes/MainTopic";
 import {Source} from "../classes/Source";
 import {Fact} from "../classes/Fact";
-import {Comment, Resume} from "../../shared/interfaces";
-import {Pic} from "../classes/Pic";
+import {Comment, FactResume, MainResume, Resume} from "../../shared/interfaces";
 
 //  Сервис для взаимодействия фронта с серверной частью(т.е. бэком)
 @Injectable({
@@ -46,12 +45,9 @@ export class DebunkerServise {
   getFDecisions(id: number): Observable<Resume>  {
     return this.http.get<Resume>(`/api/fact-resumes/${id}`)
   }
-  getPDecisions(id: number): Observable<Resume>  {
-    return this.http.get<Resume>(`/api/picture-resumes/${id}`)
-  }
 
   //todo забирать проанализованные картинки
-  getImgs(): Observable<Pic>  {
+  getImgs(): Observable<any>  {
     return this.http.get<Resume>(`/api/picture/`)
   }
 
@@ -75,14 +71,13 @@ export class DebunkerServise {
   }
 
   // Методы сохранения решения
-
   saveMaintopicResumes(id: number, userId: any, text: string): Observable<Resume> {
-    const body = {id: id, user: userId, text: text};
-    return this.http.post<Resume>(`/api/maintopic-resumes/`, body)
+    const body = {main_topic_id: id, user: userId, text: text, main_topic_name:text,source:1,status:1};
+    return this.http.post<MainResume>(`/api/maintopic-resumes/`, body)
   }
   saveFactResumes(id: number, userId: any, text: string) {
-    const body = {id: id, user: userId, text: text};
-    return this.http.post<Resume>(`/api/fact-resumes/`, body)
+    const body = {fact_id: id, user: userId, text: text, fact_name:text,source:1,status:1};
+    return this.http.post<FactResume>(`/api/fact-resumes/`, body)
   }
   savePictureResumes(id: number, userId: any, text: string) {
     const body = {id: id, user: userId, text: text};
