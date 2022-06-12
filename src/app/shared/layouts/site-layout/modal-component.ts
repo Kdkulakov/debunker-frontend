@@ -117,7 +117,7 @@ export class ModalComponent implements OnInit, OnDestroy {
 
 // методы для выставления значения поля isDisabled
   changeParam1(param: any) {
-    if (param !== null && !this.isEmptyOrSpaces(param)) {
+    if (param !== null && !this.utilService.isEmptyOrSpaces(param)) {
       this.param1 = 1;
     } else {
       this.param1 = 0;
@@ -125,7 +125,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     this.cheakActivateOk();
   }
   changeParam2(param: any) {
-    if (param !== null && !this.isEmptyOrSpaces(param)) {
+    if (param !== null && !this.utilService.isEmptyOrSpaces(param)) {
       this.param2 = 1;
     } else {
       this.param2 = 0;
@@ -133,7 +133,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     this.cheakActivateOk();
   }
   changeParam3(param: any) {
-    if (param !== null && !this.isEmptyOrSpaces(param)) {
+    if (param !== null && !this.utilService.isEmptyOrSpaces(param)) {
       this.param3 = 1;
     } else {
       this.param3 = 0;
@@ -141,7 +141,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     this.cheakActivateOk();
   }
   changeParam4(param: any) {
-    if (param !== null && !this.isEmptyOrSpaces(param.toString())) {
+    if (param !== null && !this.utilService.isEmptyOrSpaces(param.toString())) {
       this.param4 = 1;
     } else {
       this.param4 = 0;
@@ -155,9 +155,6 @@ export class ModalComponent implements OnInit, OnDestroy {
     }
   }
 
-  isEmptyOrSpaces(str) {
-    return str === null || str.match(/^ *$/) !== null;
-  }
 
   //Отписываемся от подписок, чтобы не было утечек памяти
   ngOnDestroy() {

@@ -17,6 +17,9 @@ import {UtilService} from "../../shared/services/util.service";
 })
 export class DecisionComponent implements OnInit, OnDestroy {
 
+  public isDisabled: boolean;
+  public param1: number = 0;
+  public param2: number = 0;
 
   public inputId: number;
   public model: any;
@@ -33,6 +36,7 @@ export class DecisionComponent implements OnInit, OnDestroy {
               private debunkerServise: DebunkerServise,
               public utilService: UtilService,
               private _snackBar: MatSnackBar) {
+    this.isDisabled = true;
   }
 
   ngOnInit() {
@@ -57,7 +61,7 @@ export class DecisionComponent implements OnInit, OnDestroy {
               });
             },
             error => {
-              //доработать
+              //доработать (+доделать бэк)
               /*this._snackBar.open('Что-то пошло не так. Решение не принято', 'Закрыть', {
               duration: this.utilService.CLOSE_TIME
             })*/
@@ -72,7 +76,7 @@ export class DecisionComponent implements OnInit, OnDestroy {
               });
             },
              error => {
-               //доработать
+               //доработать (+доделать бэк)
                /*this._snackBar.open('Что-то пошло не так. Решение не принято', 'Закрыть', {
                duration: this.utilService.CLOSE_TIME
              })*/
@@ -100,5 +104,29 @@ export class DecisionComponent implements OnInit, OnDestroy {
     }
   }
 
+// методы для выставления значения поля isDisabled
+  changeParam1(param: any) {
+    if (param !== null && !this.utilService.isEmptyOrSpaces(param)) {
+      this.param1 = 1;
+    } else {
+      this.param1 = 0;
+    }
+    this.cheakActivateOk();
+  }
+  changeParam2(param: any) {
+    debugger
+    if (param !== null && !this.utilService.isEmptyOrSpaces(param)) {
+      this.param2 = 1;
+    } else {
+      this.param2 = 0;
+    }
+    this.cheakActivateOk();
+  }
+  cheakActivateOk() {
+    this.isDisabled = true;
+    if (this.param1 == 1 && this.param2 == 1) {
+      this.isDisabled = false;
+    }
+  }
 
 }
