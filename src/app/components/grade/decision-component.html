@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>Форма решения</h2>
+
+
+<mat-dialog-content class="mat-typography-decision">
+
+  <form  [formGroup]="decisionForm" action="./" method="post" style="margin-top: 20px;">
+
+    <div class="padding-bottom">
+      <mat-radio-group color="primary" aria-label="Решение:">
+        <mat-radio-button value="3" ngDefaultControl formControlName="decision">Fake</mat-radio-button>
+        <mat-radio-button value="2" ngDefaultControl formControlName="decision">Подтвержден</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="padding-bottom">
+      <mat-form-field appearance="fill">
+        <mat-label>Текст</mat-label>
+        <textarea class="textarea" matInput placeholder="Введите текст" formControlName="text" rows="15"></textarea>
+      </mat-form-field>
+    </div>
+
+  </form>
+
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Закрыть</button>
+  <button mat-flat-button color="primary"
+          [mat-dialog-close]="true"
+          type="submit"
+          cdkFocusInitial
+          (click)="onSubmit($event)">Ок
+  </button>
+</mat-dialog-actions>
+
+
+
+

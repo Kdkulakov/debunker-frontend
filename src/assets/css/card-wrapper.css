@@ -1,0 +1,15 @@
+.list__header {
+  padding: 15px 15px 0;
+}
+.list__content {
+  padding: 10px 15px 30px;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  /*justify-content: space-between;*/
+  justify-content: flex-start;
+}
+
+

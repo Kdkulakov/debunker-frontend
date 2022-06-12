@@ -1,0 +1,21 @@
+.comment {
+  margin-bottom: 15px;
+  padding: 30px 30px 30px 60px;
+  position: relative;
+
+  font-style: italic;
+  color: #231E28;
+
+  border-left: 8px solid #d9d9d9; /*#737373;*/
+  background: #f7f7f7; /*#f1f1f1;*/
+
+}
+
+.author {
+  font-style: normal;
+  font-weight: 300;
+}
+
+.myComment{
+  margin: 15px;
+}

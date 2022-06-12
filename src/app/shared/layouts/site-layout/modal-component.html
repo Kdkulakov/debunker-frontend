@@ -1,0 +1,86 @@
+<h2 mat-dialog-title>Форма создания новости</h2>
+
+
+<mat-dialog-content class="mat-typography">
+
+  <form class="stnd-form" [formGroup]="myForm" action="./" method="post" enctype="multipart/form-data">
+
+    <mat-form-field class="stnd-max-width stnd-full-width " appearance="fill">
+      <mat-label>Тема</mat-label>
+      <input type="text" matInput [formControl]="name" placeholder="Тема" (blur)="changeParam1(name.value)">
+      <mat-error *ngIf="name.hasError('required')">
+        Поле <strong>тема</strong> не может быть пустым
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="stnd-full-width" appearance="fill">
+      <mat-label>Текст</mat-label>
+      <textarea class="textarea" matInput placeholder="Введите текст" [formControl]="text" rows="10"
+                (blur)="changeParam2(text.value)"></textarea>
+      <mat-error *ngIf="text.hasError('required')">
+        Поле <strong>текст</strong> не может быть пустым
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="stnd-max-width" style=" max-width: none !important;"  appearance="fill">
+      <mat-label>Url</mat-label>
+      <input type="text" matInput
+             [formControl]="url"
+             placeholder="Url"
+             (ngModelChange)="onSourcesChange($event)"
+             (blur)="changeParam3(url.value)">
+      <mat-error *ngIf="!url.hasError('required')">
+        Пожалуйста введи корректный Url
+      </mat-error>
+      <mat-error *ngIf="url.hasError('required')">
+        Поле <strong>url</strong> не может быть пустым
+      </mat-error>
+    </mat-form-field>
+
+
+     <mat-form-field appearance="fill">
+       <mat-label>Выберите источник</mat-label>
+       <mat-select [(ngModel)]="this.selected.value" [ngModelOptions]="{standalone: true}">
+         <div *ngFor="let item of items">
+           <mat-option [value]="item.value">{{item.label}}</mat-option>
+         </div>
+       </mat-select>
+     </mat-form-field>
+
+
+    <div style="height: 100%;margin-left: -15px;">
+      <div class="input__wrapper">
+        <input class="input input__file"
+               formControlName="file"
+               id="file"
+               type="file"
+               multiple
+               (change)="onFileChange($event)"
+               name="file" id="input__file">
+
+        <label for="input__file" class="input__file-button">
+          <span class="input__file-button-text">Выберите файл</span>
+        </label>
+      </div>
+      <app-slider class="block padding-bottom" style="min-height: 50px; margin-bottom: 15px;" [images]="imagesSlider"
+                  *ngIf="imagesSlider"></app-slider>
+    </div>
+
+  </form>
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Закрыть</button>
+  <button mat-flat-button color="primary"
+          [mat-dialog-close]="true"
+          type="submit"
+          cdkFocusInitial
+          [disabled]="isDisabled"
+          (click)="onSubmit($event)">Ок
+  </button>
+</mat-dialog-actions>
+
+
+
+

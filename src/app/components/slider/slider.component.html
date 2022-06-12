@@ -1,0 +1,8 @@
+<div class="mySwiper border">
+  <div class="subtitle-2 padding-bottom">Прикрепленные изображения:</div>
+  <swiper [navigation]="true">
+    <ng-template swiperSlide *ngFor="let imag of images">
+      <img src="{{imag}}" style="width: 100%; display: block;"/>
+    </ng-template>
+  </swiper>
+</div>

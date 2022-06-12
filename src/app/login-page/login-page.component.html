@@ -1,0 +1,66 @@
+<form class="login"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()">
+
+  <div class="login-content">
+
+    <div class="main_div">
+
+      <!--      <div class="input_group">
+              <input formControlName="password"
+                     type="password"
+                     required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Пароль</label>
+              <span class="red-text"
+                    *ngIf="form.get('password').invalid && form.get('password').touched">
+              <span *ngIf="form.get('password').errors['required']">Пароль не должен быть пустым</span>
+              <span *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength']['requiredLength']">
+                Пароль должен быть больше {{form.get('password').errors['minlength']['requiredLength']}} символов.
+                Сейчас {{form.get('password').errors['minlength']['actualLength']}}
+              </span>
+            </span>
+            </div>-->
+
+
+      <mat-form-field class="stnd-max-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput
+               type="email"
+               [formControl]="email"
+               placeholder="Email"
+               required>
+        <mat-error *ngIf="email.hasError('required')">
+          Поле <strong>email</strong> не может быть пустым
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="stnd-max-width" appearance="fill">
+        <mat-label>Пароль</mat-label>
+        <input matInput
+               type="password"
+               [formControl]="password"
+               placeholder="Пароль"
+               required>
+        <mat-error *ngIf="password.hasError('required')">
+          Поле <strong>пароль</strong> не может быть пустым
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="input_box button">
+    <button mat-flat-button color="primary" type="submit" (click)="onSubmit()">Войти</button>
+  </div>
+
+  <div style="padding-top: 5px">
+    Забыли пароль? <a routerLink="#">Напомнить</a>
+  </div>
+  <div class="codeMind">
+    Сделано командой CodeMind
+  </div>
+
+
+</form>

@@ -1,0 +1,7 @@
+.custom-purple-border {
+  border: 1px solid #737373 !important;
+
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 5%), 0 0 0 1px rgb(63 63 68 / 10%);
+  width: 100%;
+}

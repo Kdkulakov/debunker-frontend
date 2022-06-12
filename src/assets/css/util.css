@@ -1,0 +1,66 @@
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  /*  margin-right: -15px;
+    margin-left: -15px;*/
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}
+
+.margin {
+  margin-bottom: 15px !important;
+}
+
+
+.width {
+  width: 100% !important;
+}
+
+.col-50 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.col-100 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.cursored {
+  cursor: pointer;
+}
+
+
+mat-form-field {
+  margin-right: 12px;
+}
+.mat-simple-snackbar-action {
+  color: #e0e0e0 !important;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+

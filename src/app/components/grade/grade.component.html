@@ -1,0 +1,37 @@
+<div class="myGrade border">
+  <div class="subtitle-2 padding-bottom">Оценки нейросети:
+    <div class="text__size-14">
+
+      <div class="rowGrade">
+        <div class="textGrade">Качество источника</div>
+        <div matTooltip="Поясниния?"  matTooltipPosition="right" class="myIcon gr1" ><div class="myIconSpan">{{this.gradeQuality}}%</div></div>
+      </div>
+
+      <div class="rowGrade">
+        <div class="textGrade">Орфография</div>
+        <div matTooltip="Поясниния?" matTooltipPosition="right" class="myIcon gr2" ><div class="myIconSpan">{{this.gradeOrtho}}%</div></div>
+      </div>
+
+      <div class="rowGrade">
+        <div class="textGrade">Тональность</div>
+        <div matTooltip="Поясниния?"  matTooltipPosition="right"  class="myIcon gr3" ><div class="myIconSpan">{{this.gradeTonality}}%</div></div>
+      </div>
+
+      <div class="rowGrade">
+        <div class="textGrade">Токсичность? </div>
+        <div matTooltip="Поясниния?"  matTooltipPosition="right"  class="myIcon gr4" ><div class="myIconSpan">{{this.gradeToxicity}}%</div></div>
+      </div>
+
+    </div>
+  </div>
+  <div class="subtitle-2">Решение:
+    <div class="text__size-14 inline-block">
+      <button mat-flat-button color="primary" (click)="openModal()" style="margin-bottom: 20px;">Добавить решение<mat-icon >add</mat-icon></button>
+    </div>
+  </div>
+  <mat-form-field class="stnd-full-width block" appearance="fill">
+    <!--<mat-label>Решение</mat-label>-->
+    <textarea class="textarea" matInput  [(ngModel)]="decisionField" readonly
+              rows="3"></textarea>
+  </mat-form-field>
+</div>

@@ -1,0 +1,35 @@
+<form class="padding-bottom  width" action="./" method="post">
+
+  <div class="myComment border">
+    <mat-label class="subtitle-dark padding-bottom block">
+      Добавить коментарий
+    </mat-label>
+
+    <mat-form-field class="stnd-full-width block" appearance="fill">
+      <mat-label>Коментарий</mat-label>
+      <textarea class="textarea" matInput placeholder="Введите коментарий" [formControl]="commentFiald"
+                rows="5"></textarea>
+    </mat-form-field>
+
+    <button class="block margin"
+            mat-flat-button
+            color="primary"
+            type="submit"
+            (click)="onSubmit($event)">Ок
+    </button>
+
+    <mat-label class="subtitle-dark padding-bottom block">
+      Коментарии
+    </mat-label>
+
+    <div class="padding-bottom block">
+      <div class="comment" *ngFor="let comment of commentList">
+        {{comment.text}}
+        <div class="author">
+          Автор:{{comment.user}}
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+

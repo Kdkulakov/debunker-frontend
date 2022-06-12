@@ -1,0 +1,57 @@
+/*Заголовки*/
+.title {
+  font-weight: 300;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500;
+  color: #9a9a9a;
+}
+.subtitle-dark {
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500;
+  color: #4a4a4a;
+}
+.subtitle-2 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #9a9a9a;
+}
+
+
+/*Тексты*/
+.text__1 {
+  color: black;
+  font-size: 14px;
+}
+.text__2 {
+  color: #737373;
+  font-size: 14px;
+  white-space: pre-wrap;
+  line-height: 25px;
+
+  text-indent: 1.5em; /* Отступ первой строки */
+  text-align: justify; /* Выравнивание по ширине */
+}
+
+.text__size-13,
+.text__size-14 {
+  color: black;
+  white-space: pre-wrap;
+  line-height: 25px;
+}
+
+.text__size-13 {
+  font-size: 13px;
+}
+
+.text__size-14 {
+  font-size: 14px;
+}
+
+.red-text{
+  color: #ff0000;
+}

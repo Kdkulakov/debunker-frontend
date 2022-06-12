@@ -1,0 +1,31 @@
+.item_card_title {
+  font-size: 17px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.item_card_content {
+  color: #e7e7e7;
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /*5строк*/
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.item_card_date {
+  font-size: 14px;
+}
+.item_card_state {
+  font-size: 15px;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.item_card_icon {
+
+}

@@ -1,0 +1,75 @@
+<form class="register"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()">
+
+  <div class="register-content">
+    <div class="main_div">
+
+
+      <mat-form-field class="stnd-max-width" appearance="fill">
+        <mat-label>Логин</mat-label>
+        <input matInput
+               type="text"
+               [formControl]="username"
+               placeholder="Логин"
+               required>
+        <mat-error *ngIf="username.hasError('required')">
+          Поле <strong>логин</strong> не может быть пустым
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="stnd-max-width" appearance="fill">
+        <mat-label>Пароль</mat-label>
+        <input matInput
+               type="password"
+               [formControl]="password"
+               placeholder="Пароль"
+               required>
+        <mat-error *ngIf="password.hasError('required')">
+          Поле <strong>пароль</strong> не может быть пустым
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+
+
+    <mat-form-field class="stnd-max-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput
+             type="email"
+             [formControl]="email"
+             placeholder="email"
+             required>
+      <mat-error *ngIf="email.hasError('required')">
+        Поле <strong>email</strong> не может быть пустым
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="stnd-max-width" appearance="fill">
+      <mat-label>Имя</mat-label>
+      <input matInput
+             type="text"
+             [formControl]="first_name"
+             placeholder="Имя">
+
+    </mat-form-field>
+    <mat-form-field class="stnd-max-width" appearance="fill">
+      <mat-label>Фамилия</mat-label>
+      <input matInput
+             type="text"
+             [formControl]="last_name"
+             placeholder="Фамилия">
+    </mat-form-field>
+
+  </div>
+
+  <div class="input_box button">
+    <button mat-flat-button color="primary"
+            type="submit"
+    >Создать
+    </button>
+  </div>
+
+</form>

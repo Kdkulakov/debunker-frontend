@@ -1,0 +1,8 @@
+<mat-card class="grid-container grid-hover tender-show"
+          [ngClass]="{cursored: isCursored }">
+  <mat-card-title *ngIf="item_card_title" class="grid-line-1 item_card_title">{{item.name}}</mat-card-title>
+  <mat-card-content *ngIf="item_card_content" class="grid-line-2 item_card_content">{{item.text}}</mat-card-content>
+  <mat-icon  *ngIf="item_card_info" class="grid-line-3 item_card_info">Подробно: launch</mat-icon>
+  <mat-card-content *ngIf="item_card_date" class="grid-line-4 item_card_date">Создано {{localeDate}}</mat-card-content>
+  <mat-card-content *ngIf="item_card_state" class="grid-line-5 item_card_state">Статус: {{item.status}}</mat-card-content>
+</mat-card>

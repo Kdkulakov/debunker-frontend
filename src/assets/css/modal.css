@@ -1,0 +1,38 @@
+mat-form-field {
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Стили для множество Мобильных устройств */
+@media (max-width: 770px) {
+  .mat-typography{
+    min-width: auto;
+  }
+}
+
+/*По Умолчанию*/
+@media (min-width: 770px) {
+  .mat-typography{
+    min-width: 70vw;
+    min-height: 60vh;
+  }
+}
+
+
+/* Стили для множество Мобильных устройств */
+@media (max-width: 770px) {
+  .mat-typography-decision{
+    min-width: auto;
+  }
+}
+
+/*По Умолчанию*/
+@media (min-width: 770px) {
+  .mat-typography-decision{
+    min-width: 70vw;
+    min-height: 40vh;
+  }
+}

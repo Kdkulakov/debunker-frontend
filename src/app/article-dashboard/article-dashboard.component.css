@@ -1,0 +1,52 @@
+table {
+  width: 100%;
+}
+
+.main__topic_content {
+  display: inline-block;
+}
+
+.list__content-empty {
+  padding: 15px 15px 40px;
+  text-align: center;
+}
+
+.analitics_content {
+  display: grid;
+  grid-template-rows: [ro1] 100%[row2];
+  grid-template-columns: [col1] 45% [col2] 55% [col3];
+}
+
+.grid-line-1 {
+  grid-row-start: ro1;
+  grid-column-start: col1;
+}
+
+.grid-line-2 {
+  grid-row-start: ro1;
+  grid-column-start: col2;
+}
+
+.like_button {
+  background-color: #673ab7;
+  color: white;
+  box-sizing: border-box;
+  position: relative;
+
+  border: none; /* Рамка вокруг текста */
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block; /* Отображать как строчн-блочный элемент */
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 1px;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 16px; /* Поля вокруг текста */
+  border-radius: 4px;
+  overflow: visible;
+}
+
+
+

@@ -1,0 +1,35 @@
+<div class="page">
+
+  <!--SIDEBAR-->
+  <div class="menu">
+
+    <div class="menu__wrapper">
+
+      <img class="logo_debunker" src="../../../../assets/pics/LOGOmenu.png">
+
+      <ul class="menu-list">
+        <button mat-flat-button color="primary" (click)="openModal()" style="margin-bottom: 20px;">Добавить новость  <mat-icon >add</mat-icon></button>
+        <li class="menu-item" *ngFor="let link of links">
+          <a [routerLink]="[link.url]"
+             routerLinkActive="active-link"
+             ><mat-icon>{{link.icon}}</mat-icon> {{link.name}}</a>
+        </li>
+        <li>
+          <a href="#" (click)="logout($event)">Выйти <mat-icon>exit_to_app</mat-icon></a>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <!--LAYOUTS-->
+  <main class="content">
+    <section class="section">
+      <div class="section__wrapper">
+        <router-outlet></router-outlet>
+      </div>
+    </section>
+  </main>
+
+</div>

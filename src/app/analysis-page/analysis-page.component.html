@@ -1,0 +1,33 @@
+<form class="list__wrapper">
+
+  <div class="list__header">
+    <h3 class="title">Список новостей на исследования</h3>
+  </div>
+
+  <div *ngIf="mainTopic$ | async as mainTopics; else loadertemplate">
+    <div *ngIf="mainTopics.length !== 0 ; else emplytemplate">
+      <div class="list__content flex tender-show">
+        <div *ngFor="let mainTopic of mainTopics">
+          <app-card [item]="mainTopic"
+                    [item_card_title]="true"
+                    [item_card_content]="true"
+                    [item_card_info]="true"
+                    [item_card_date]="true"
+                    [item_card_state]="true"
+                    [isCursored]="true"
+                    (click)="openNews(mainTopic)">
+          </app-card>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #emplytemplate>
+      У вас нет ни одной новости
+    </ng-template>
+  </div>
+
+</form>
+
+<ng-template #loadertemplate>
+  <app-loader></app-loader>
+</ng-template>

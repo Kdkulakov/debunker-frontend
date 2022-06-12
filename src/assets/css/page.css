@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  /*background: linear-gradient(90deg, rgb(255, 9, 0), rgb(191, 66, 64));*/
+}
+
+.page {
+  /*padding: 10px;*/
+}
+
+.paddings {
+  padding: 15px;
+}
+
+.padding-bottom {
+  padding-bottom: 24px;
+}
+
+
+.nonecursored:focus,
+.nonecursored:hover{
+  cursor: default ;
+}
+
+.tender-show{
+  opacity: 0;
+  animation: ani 0.5s forwards;
+}
+
+@keyframes ani {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.border{
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 5%), 0 0 0 1px rgb(63 63 68 / 10%);
+}

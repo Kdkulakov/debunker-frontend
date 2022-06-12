@@ -1,0 +1,110 @@
+<form class="list__wrapper">
+
+  <div class="list__header">
+    <h3 *ngIf="!isFactRoot" class="title">Рабочий стол исследования новостей</h3>
+    <h3 *ngIf="isFactRoot" class="title">
+      <a [routerLink]="'/newsanalysis/'+maintopicId">Рабочий стол исследования новостей</a>
+      > Факт-смежная новость
+    </h3>
+  </div>
+
+
+  <div *ngIf="!isFactRoot">
+    <div *ngIf="!isAnalise" class="list__content-empty">
+      <p>Привет, {{this.utilService.users[1].username}}!</p>
+      <p>Новость не выбрана.</p>
+      <mat-icon>dashboard</mat-icon>
+    </div>
+
+    <div *ngIf="isAnalise" class="list__content tender-show">
+      <div class="main__topic_content padding-bottom">
+        <div class="subtitle-dark padding-bottom">Новость: "{{mainTopic.name}}"</div>
+        <div class="text__2 padding-bottom">{{mainTopic.text}}</div>
+        <div class="text__1 like_button padding-bottom">
+          Статус: {{mainTopic.status}}</div>
+      </div>
+
+      <div class="analitics_content">
+        <app-slider [images]="imagesSlider">
+        </app-slider>
+        <app-grade
+          [gradeQuality]="10"
+          [gradeOrtho]="20"
+          [gradeCitation]="30"
+          [gradeEmotional]="40"
+          [inputId]="mainTopic.id"
+          model="1">
+        </app-grade>
+      </div>
+
+      <h3 class="title">Смеженные факты:</h3>
+      <div class="mat-elevation-z8 paddings">
+        <table mat-table [dataSource]="facts">
+          <!-- Название источника-->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Название источника</th>
+            <td  mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+          <!-- Качество источника-->
+          <ng-container matColumnDef="source_score">
+            <th mat-header-cell *matHeaderCellDef>Качество источника</th>
+           <!-- <td mat-cell *matCellDef="let element">{{element.source_score}}%</td>-->
+          </ng-container>
+          <!-- Дата создания  -->
+         <ng-container matColumnDef="created">
+            <th mat-header-cell *matHeaderCellDef>Дата создания</th>
+            <td mat-cell *matCellDef="let element"> {{this.convertData(element.created)}}</td>
+          </ng-container>
+          <!-- Дата публикации-->
+          <!-- <ng-container matColumnDef="ppublication_date">
+            <th mat-header-cell *matHeaderCellDef>Дата публикации</th>
+            <td mat-cell *matCellDef="let element">{{this.convertData(element.ppublication_date)}}</td>
+          </ng-container>-->
+
+          <tr mat-header-row *matHeaderRowDef="titleColumns"></tr>
+          <tr mat-row class="cursored"
+              *matRowDef="let row; columns: titleColumns;"
+              (click)="openByClick(row)"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[10,15,20]"
+                       showFirstLastButtons
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>
+
+
+      <!--  <h3 class="title">Смеженные картинки:</h3>
+      <div class="mat-elevation-z8 paddings">
+      <table mat-table [dataSourceImg]="imgs">
+          &lt;!&ndash; Картинка публикации&ndash;&gt;
+         <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Картинка</th>
+            <td  mat-cell *matCellDef="let element"> <img src="{{element.base64}}"/></td>
+          </ng-container>
+          &lt;!&ndash; Дата публикации&ndash;&gt;
+          <ng-container matColumnDef="created">
+            <th mat-header-cell *matHeaderCellDef>Дата публикации</th>
+            <td mat-cell *matCellDef="let element"> {{element.ppublication_date}}</td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="titleColumnImgs"></tr>
+          <tr mat-row class="cursored"
+              *matRowDef="let row; columns: titleColumnImgs;"
+              (click)="openByClick(row)"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[3,5]"
+                       showFirstLastButtons
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+     </div>-->
+
+
+    </div>
+  </div>
+
+  <router-outlet *ngIf="isFactRoot"></router-outlet>
+
+</form>
+
+<ng-template #loadertemplate>
+  <app-loader></app-loader>
+</ng-template>

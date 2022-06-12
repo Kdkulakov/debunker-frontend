@@ -1,0 +1,27 @@
+@import "assets/css/auth.css";
+@import "assets/css/input.css";
+@import "assets/css/textarea.css";
+@import "assets/css/util.css";
+
+
+@import "assets/css/page.css";
+@import "assets/css/text.css";
+@import "assets/css/content.css";
+@import "assets/css/modal.css";
+
+@import "assets/css/menu.css";
+@import "assets/css/menu-list.css";
+
+@import "assets/css/card.css";
+@import "assets/css/card-wrapper.css";
+@import "assets/css/slider.css";
+@import "assets/css/loadbutton.css";
+
+@import "~swiper/swiper-bundle.css";
+@import "~swiper/swiper.min.css";
+@import "~swiper/swiper-bundle.min.css";
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+*{
+  font-family: 'Roboto', sans-serif;
+}

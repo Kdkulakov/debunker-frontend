@@ -1,0 +1,86 @@
+.item_card_info,
+.item_card_title {
+  font-size: 17px;
+  width: 100%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item_card_title,
+.item_card_date,
+.item_card_state {
+  color: #d1b6ff;
+}
+
+.item_card_content {
+  color: #e7e7e7;
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /*4строк*/
+  line-height: 1.5; /*расстояние м-у строк*/
+  text-align: justify; /* Выравнивание по ширине */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.item_card_date {
+  font-size: 14px;
+}
+
+.item_card_state {
+  font-size: 15px;
+  margin-left: auto;
+  margin-right: 0;
+  justify-content: end;
+}
+
+.item_card_icon {
+
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-rows: [ro1] 33px [row2] 96px [row3] 38px [row4] 36px [row4];
+  grid-template-columns: [col1] 1fr [col2];
+}
+
+.grid-line-1 {
+  grid-row-start: ro1;
+  grid-column-start: col1;
+}
+
+.grid-line-2 {
+  grid-row-start: row2;
+  grid-column-start: col1;
+}
+
+.grid-line-3 {
+  grid-row-start: row3;
+  grid-column-start: col1;
+}
+
+.grid-line-4 {
+  grid-row-start: row4;
+  grid-column-start: col1;
+}
+
+.grid-line-5 {
+  grid-row-start: row5;
+  grid-column-start: col1;
+}
+
+.grid-hover:hover{
+  color:#d1b6ff !important;
+ /* background-color: rgba(103, 58, 183, 0.58) !important;*/
+  box-shadow: 5px 10px 15px rgb(136 108 180 / 92%) !important;
+}
+
+.grid-hover[status=red] :hover{
+  color: #ff0038 !important;
+  /* background-color: rgba(103, 58, 183, 0.58) !important;*/
+  box-shadow: 5px 10px 15px rgba(255, 0, 56, 0.92) !important;
+}

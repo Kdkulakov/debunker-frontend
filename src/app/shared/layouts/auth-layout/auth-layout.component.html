@@ -1,0 +1,33 @@
+<div class="auth__page">
+
+
+  <div class="auth__content">
+
+    <div class="auth__nav">
+      <nav>
+
+        <img class="logo_debunker" src="../../../../assets/pics/LOGO2.png">
+        <div style="display:flex; justify-content: space-evenly;">
+          <button mat-flat-button
+                  style="width:100%;margin-left:15px;margin-right:1px;"
+                  color="primary"
+                  routerLink="login">Вход
+          </button>
+          <button mat-flat-button
+                  style="width:100%;margin-right:15px;margin-left:1px;"
+                  color="primary"
+                  routerLink="register">Регистрация
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <div class="auth__block">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+</div>
+
+

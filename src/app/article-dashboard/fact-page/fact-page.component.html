@@ -1,0 +1,32 @@
+<div class="fact__content">
+
+  <div class="tender-show ">
+
+    <div class="subtitle-dark padding-bottom">Заголовок:"{{fact.name}}"</div>
+
+    <div class="padding-bottom">
+      <div class="text__2 padding-bottom">{{fact.text}}</div>
+      <div class="text__1 like_button padding-bottom">
+        Статус: {{fact.status}}</div>
+    </div>
+
+    <div class="analitics_content">
+      <app-slider [images]="imagesArr">
+      </app-slider>
+      <app-grade
+        [gradeQuality]="100"
+        [gradeOrtho]="200"
+        [gradeTonality]="300"
+        [gradeToxicity]="400"
+        model="2"
+        [inputId]="this.factId">
+      </app-grade>
+    </div>
+
+    <app-comment
+    [commentList]="commentsList"
+    [factId]="fact.id">
+    </app-comment>
+
+  </div>
+</div>

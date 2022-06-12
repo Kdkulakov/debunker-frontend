@@ -1,0 +1,14 @@
+/*Новый вариант*/
+
+.stnd-form {
+  min-width: 150px;
+  width: 100%;
+}
+
+.stnd-full-width {
+  width: 100%;
+}
+
+.stnd-max-width{
+  max-width: 500px;
+}
