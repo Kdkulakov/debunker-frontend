@@ -39,12 +39,12 @@
       </div>
 
       <h3 class="title">Смеженные факты:</h3>
-      <div class="mat-elevation-z8 paddings">
+      <div class="mat-elevation-z8 paddings padding-bottom">
         <table mat-table [dataSource]="facts">
           <!-- Название источника-->
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Название источника</th>
-            <td  mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <td  mat-cell *matCellDef="let element">{{element.name}}</td>
           </ng-container>
           <!-- Качество источника-->
           <ng-container matColumnDef="source_score">
@@ -52,9 +52,9 @@
             <td mat-cell *matCellDef="let element">{{element.source_score}}%</td>
           </ng-container>
           <!-- Дата публикации-->
-           <ng-container matColumnDef="ppublication_date">
+           <ng-container matColumnDef="publication_date">
             <th mat-header-cell *matHeaderCellDef>Дата публикации</th>
-            <td mat-cell *matCellDef="let element">{{this.convertData(element.ppublication_date)}}</td>
+            <td mat-cell *matCellDef="let element">{{this.convertData(element.publication_date)}}</td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="titleColumns"></tr>
@@ -69,18 +69,18 @@
       </div>
 
 
-      <!--  <h3 class="title">Смеженные картинки:</h3>
+        <h3 class="title">Смеженные картинки:</h3>
       <div class="mat-elevation-z8 paddings">
-      <table mat-table [dataSourceImg]="imgs">
-          &lt;!&ndash; Картинка публикации&ndash;&gt;
-         <ng-container matColumnDef="name">
+      <table mat-table [dataSource]="imgs">
+          <!-- Картинка публикации-->
+         <ng-container matColumnDef="base64">
             <th mat-header-cell *matHeaderCellDef>Картинка</th>
             <td  mat-cell *matCellDef="let element"> <img src="{{element.base64}}"/></td>
           </ng-container>
-          &lt;!&ndash; Дата публикации&ndash;&gt;
-          <ng-container matColumnDef="created">
+          <!-- Дата публикации-->
+          <ng-container matColumnDef="publication_date">
             <th mat-header-cell *matHeaderCellDef>Дата публикации</th>
-            <td mat-cell *matCellDef="let element"> {{element.ppublication_date}}</td>
+            <td mat-cell *matCellDef="let element"> {{element.publication_date}}</td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="titleColumnImgs"></tr>
           <tr mat-row class="cursored"
@@ -91,7 +91,7 @@
                        showFirstLastButtons
                        aria-label="Select page of periodic elements">
         </mat-paginator>
-     </div>-->
+     </div>
 
 
     </div>

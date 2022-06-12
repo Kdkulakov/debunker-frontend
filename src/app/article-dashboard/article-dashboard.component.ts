@@ -37,8 +37,8 @@ export class ArticleDashboardComponent implements OnInit, AfterViewInit, OnDestr
 
   public isFactRoot = false;
 
-  public titleColumns: string[] = ['name', 'source_score', 'ppublication_date'];
-  public titleColumnImgs: string[] = ['base64', 'ppublication_date'];
+  public titleColumns: string[] = ['name', 'source_score', 'publication_date'];
+  public titleColumnImgs: string[] = ['base64', 'publication_date'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -236,8 +236,8 @@ export class ArticleDashboardComponent implements OnInit, AfterViewInit, OnDestr
       this.subscriptionState.unsubscribe()
     }
   }
-  convertData(created) {
-    return new Date(created).toLocaleDateString()
+  convertData(date) {
+    return new Date(date).toLocaleDateString()
   }
 
 }

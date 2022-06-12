@@ -103,5 +103,8 @@ export class UtilService {
     return strState;
   }
 
+  isEmptyOrSpaces(str) {
+    return str === null || str.match(/^ *$/) !== null;
+  }
 
 }

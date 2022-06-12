@@ -33,11 +33,9 @@ export interface Item {
 export interface Img {
   base64?: string;
   id?: string;
-  main_topic_id?: string;
-  main_topic_name?: string;
   value?: string;
   created?: string;
-  ppublication_date?: string;
+  publication_date?: string;
 }
 
 export interface DBToken {
