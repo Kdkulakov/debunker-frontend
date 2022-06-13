@@ -112,8 +112,6 @@ export class ArticleDashboardComponent implements OnInit, AfterViewInit, OnDestr
   refreshTopic(id: string) {
     this.subscriptionRT = this.debunkerServise.getTopicById(id).subscribe(mt => {
       if (mt) {
-        //console.log(' Получение mt');
-        //console.log(mt);
         this.mainTopic = mt;
         this.maintopicId = this.mainTopic.id
         this.isAnalise = true;

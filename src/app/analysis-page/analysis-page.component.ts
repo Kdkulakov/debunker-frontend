@@ -27,8 +27,6 @@ export class AnalysisPageComponent implements OnInit {
 
   //Открытие новости по клику
   openNews(mainTopic: MainTopic) {
-    console.log(' Выбранный mainTopic из списка новостей:');
-    console.log(mainTopic);
     this.utilService.setData(mainTopic);
     this.router.navigate(['/newsanalysis',mainTopic.id]);
   }

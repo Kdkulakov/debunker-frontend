@@ -77,8 +77,6 @@ export class GradeComponent implements OnInit, OnDestroy {
 
   openModal() {
     let arr = [this.inputId, this.model]
-    console.log('=========== Проверка arr при открытии');
-    console.log(arr);
     // Открытие модального окна DecisionComponent
     const dialogRef = this.dialog.open(DecisionComponent, {height: 'fit-content'});
     dialogRef.afterOpened().subscribe(afterOpened => {

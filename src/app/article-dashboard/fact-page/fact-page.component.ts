@@ -40,8 +40,6 @@ export class FactPageComponent implements OnInit,OnDestroy {
     this.gradeToxicity=this.fact.toxicity;
 
     this.factId=Number(this.fact.id);
-    console.log(' fact на анализ странице:');
-    console.log(this.fact);
     this.aSub=this.debunkerServise.getCommentsByFactId(this.fact.id).subscribe(
       commentsList => {
         this.commentsList = commentsList.comments_items;

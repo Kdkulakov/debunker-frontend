@@ -26,8 +26,6 @@ export class UtilService {
   }
 
   setFact(fact: any) {
-    console.log(' Установка fact');
-    console.log(this.fact);
     this.fact = fact;
   }
 
