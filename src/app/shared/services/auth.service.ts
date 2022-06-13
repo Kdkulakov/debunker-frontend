@@ -28,8 +28,7 @@ export class AuthService {
     const user: User = {
       username: username,
       password: password,
-      email: username,
-      id: '1'
+      email: username
     }
     // асинхронный стрим rxjs
     return this.http.post<DBToken>('/api/token/', user)

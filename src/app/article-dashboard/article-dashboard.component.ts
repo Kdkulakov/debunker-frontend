@@ -57,7 +57,7 @@ export class ArticleDashboardComponent implements OnInit, AfterViewInit, OnDestr
   private subscriptionRTWF: Subscription;
   private subscriptionL: Subscription;
   private subscriptionState: Subscription;
-
+  private subscriptionUser: Subscription;
 
   constructor(public utilService: UtilService,
               private debunkerServise: DebunkerServise,
@@ -133,7 +133,7 @@ export class ArticleDashboardComponent implements OnInit, AfterViewInit, OnDestr
           this.gradeTonality=this.mainTopic.tonality;
           this.gradeToxicity=this.mainTopic.toxicity;
         });
-        //todo
+        //todo когда будет сделано на бэке. использовать тут
         /*this.debunkerServise.getImgs().subscribe(main => {
           //this.imgs = [];
         });*/
@@ -185,7 +185,7 @@ export class ArticleDashboardComponent implements OnInit, AfterViewInit, OnDestr
         this.gradeOrtho=this.mainTopic.orthography;
         this.gradeTonality=this.mainTopic.tonality;
         this.gradeToxicity=this.mainTopic.toxicity;
-        //todo
+        //todo когда будет сделано на бэке. использовать тут
         /*this.debunkerServise.getImgs().subscribe(main => {
           //this.imgs = [];
         });*/
@@ -234,6 +234,9 @@ export class ArticleDashboardComponent implements OnInit, AfterViewInit, OnDestr
     }
     if (this.subscriptionState) {
       this.subscriptionState.unsubscribe()
+    }
+    if (this.subscriptionUser) {
+      this.subscriptionUser.unsubscribe();
     }
   }
   convertData(date) {

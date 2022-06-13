@@ -42,3 +42,7 @@ export interface DBToken {
   refresh: string;
   access: string;
 }
+export interface IUser {
+  id?: any;
+  email?: any;
+}

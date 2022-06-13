@@ -13,6 +13,7 @@ const TOKEN_HEADER_KEY = 'Authorization';
 //HttpInterceptor
 //Смысл перехватчика, что отлавливать запроы (реквесты)
 // и добавляем в запросы в хедер авторизейшен(Authorization) значение нужный токен.
+// со временем расширить обработку различных ошибок
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
@@ -41,6 +42,7 @@ export class TokenInterceptor implements HttpInterceptor {
     }));
   }
 
+// со временем  расширить(учитывая различныне варианты ошибок)
   private handleAuthError(request: HttpRequest<any>, next: HttpHandler) {
     if (!this.isRefreshing) {
       this.isRefreshing = true;
@@ -72,6 +74,8 @@ export class TokenInterceptor implements HttpInterceptor {
     );
   }
 
+// со временем расширить(учитывая различныне варианты возникновения ошибок)
+// пока когда происходит 401
   private handleRefresh401Error() {
     this.router.navigate(['/login'], {
       queryParams: {

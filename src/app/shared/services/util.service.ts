@@ -10,18 +10,6 @@ export class UtilService {
 
   public CLOSE_TIME = 3000;
 
-  public users: User[] = [{
-    id: '1',
-    username: 'Diana',
-    password: 'qwe',
-    email: 'qwe@mail.com',
-  },
-    {
-      id: '456',
-      username: 'Username',
-      password: 'asd',
-      email: 'asd@mail.com',
-    }]
 
   public dataModal = new Subject();
   public formData = new Subject();

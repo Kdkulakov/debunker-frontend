@@ -4,9 +4,9 @@ import {Observable} from "rxjs";
 import {MainTopic} from "../classes/MainTopic";
 import {Source} from "../classes/Source";
 import {Fact} from "../classes/Fact";
-import {Comment, FactResume, MainResume, Resume} from "../../shared/interfaces";
+import {Comment, FactResume, IUser, MainResume, Resume} from "../../shared/interfaces";
 
-//  Сервис для взаимодействия фронта с серверной частью(т.е. бэком)
+//  Сервис для взаимодействия фронта с серверной частью
 @Injectable({
   providedIn: 'root'
 })
@@ -45,16 +45,21 @@ export class DebunkerServise {
   getFDecisions(id: number): Observable<Resume>  {
     return this.http.get<Resume>(`/api/fact-resumes/${id}`)
   }
+  // метод получения id Пользователя
+  getUserById(): Observable<IUser>  {
+    // более корректно доделать,когда будет функционал
+    let email="admin@debunker.local";
+    return this.http.post<IUser>(`/api/get-user-id/`,{email:email})
+  }
 
-  //todo забирать проанализованные картинки
+  //todo забирать проанализованные картинки(доделать,когда доделают бэк)
   getImgs(): Observable<any>  {
     return this.http.get<Resume>(`/api/picture/`)
   }
 
-
   // Метод создания новости
-  createMainTopic(name: any, text: any, url: any, source: any, images_list?: any): Observable<MainTopic> {
-    const body = {name: name, text: text, url: url, source: source, user: "1", images_list: images_list};
+  createMainTopic(userId: any, name: any, text: any, url: any, source: any, images_list?: any): Observable<MainTopic> {
+    const body = {name: name, text: text, url: url, source: source, user: userId,  images_list: images_list};
     return this.http.post<MainTopic>('/api/news/', body)
   }
 
@@ -72,11 +77,11 @@ export class DebunkerServise {
 
   // Методы сохранения решения
   saveMaintopicResumes(id: number, userId: any, text: string): Observable<Resume> {
-    const body = {main_topic_id: id, user: userId, text: text, main_topic_name:text,source:1,status:1};
+    const body = {main_topic_id: id, user: userId, text: text, main_topic_name:text};
     return this.http.post<MainResume>(`/api/maintopic-resumes/`, body)
   }
   saveFactResumes(id: number, userId: any, text: string) {
-    const body = {fact_id: id, user: userId, text: text, fact_name:text,source:1,status:1};
+    const body = {fact_id: id, user: userId, text: text, fact_name:text};
     return this.http.post<FactResume>(`/api/fact-resumes/`, body)
   }
   savePictureResumes(id: number, userId: any, text: string) {

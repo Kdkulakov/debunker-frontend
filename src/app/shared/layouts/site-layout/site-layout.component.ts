@@ -3,7 +3,6 @@ import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {ModalComponent} from "./modal-component";
-import {DebunkerServise} from "../../services/debunker.service";
 
 // Второй общий слой на котором с помощью router-outlet происходит управление роутингом на analysis-page,article-dashboard,source-page
 @Component({
@@ -23,8 +22,7 @@ export class SiteLayoutComponent implements OnInit, AfterViewInit {
 
   constructor(private auth: AuthService,
               private router: Router,
-              public dialog: MatDialog,
-              private debunkerServise: DebunkerServise) {
+              public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -34,14 +32,10 @@ export class SiteLayoutComponent implements OnInit, AfterViewInit {
   }
 
   openModal() {
-   // this.debunkerServise.checkDebunkerServise().subscribe(value => {
-   //   if(value==200){
         const dialogRef = this.dialog.open(ModalComponent);
         dialogRef.afterClosed().subscribe(result => {
           console.log(`Dialog result: ${result}`);
         });
-   //   }
-   // })
   }
 
 

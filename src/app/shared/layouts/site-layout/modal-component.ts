@@ -5,7 +5,7 @@ import {
 
 import {DebunkerServise} from "../../services/debunker.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Item} from "../../interfaces";
+import {Item, IUser} from "../../interfaces";
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {UtilService} from "../../services/util.service";
 import {Subscription} from "rxjs";
@@ -34,6 +34,10 @@ export class ModalComponent implements OnInit, OnDestroy {
   public srcImgBase64_list: string[] = []
   public imagesSlider: string[] = [];
   private aSubSources: Subscription;
+
+  public subscriptionUser: Subscription;
+  public userId: string;
+
   public myForm = new FormGroup({
     file: new FormControl('', [Validators.required]),
     fileSource: new FormControl('', [Validators.required])
@@ -57,6 +61,15 @@ export class ModalComponent implements OnInit, OnDestroy {
     });
   }
 
+  ngOnInit() {
+    this.name = new FormControl(null, [Validators.required]);
+    this.text = new FormControl(null, [Validators.required]);
+    this.url = new FormControl(null, [Validators.required]);
+    this.source = new FormControl(null);
+    this.subscriptionUser=this.debunkerServise.getUserById().subscribe(userId=>{
+      this.userId=userId.id;
+    })
+  }
 
   onFileChange(event: any) {
     if (event.target.files && event.target.files[0]) {
@@ -94,15 +107,9 @@ export class ModalComponent implements OnInit, OnDestroy {
     return value;
   }
 
-  ngOnInit() {
-    this.name = new FormControl(null, [Validators.required]);
-    this.text = new FormControl(null, [Validators.required]);
-    this.url = new FormControl(null, [Validators.required]);
-    this.source = new FormControl(null);
-  }
 
   onSubmit(event?: Event) {
-    this.debunkerServise.createMainTopic(this.name.value, this.text.value, this.url.value, this.selected.value, this.srcImgBase64_list).subscribe(
+    this.debunkerServise.createMainTopic( this.userId, this.name.value, this.text.value, this.url.value, this.selected.value, this.srcImgBase64_list).subscribe(
       response => {
         this._snackBar.open('Новость отправлена на анализ', 'Закрыть', {
           duration: this.utilService.CLOSE_TIME
@@ -160,6 +167,9 @@ export class ModalComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.aSubSources) {
       this.aSubSources.unsubscribe();
+    }
+    if (this.subscriptionUser) {
+      this.subscriptionUser.unsubscribe();
     }
   }
 }

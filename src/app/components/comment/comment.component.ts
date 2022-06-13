@@ -23,6 +23,9 @@ export class CommentComponent implements OnInit, OnDestroy  {
 
   public aSub: Subscription;
 
+  public subscriptionUser: Subscription;
+  public userId: string;
+
   constructor(private debunkerServise: DebunkerServise,
               private utilService: UtilService,
               private _snackBar: MatSnackBar) {
@@ -30,11 +33,14 @@ export class CommentComponent implements OnInit, OnDestroy  {
 
   ngOnInit(): void {
     this.commentField = new FormControl(null);
+    this.subscriptionUser=this.debunkerServise.getUserById().subscribe(userId=>{
+      this.userId=userId.id;
+    })
   }
 
   onSubmit(event: Event) {
     //this.aSub =
-    this.debunkerServise.createComment(this.factId, this.utilService.users[0].id, this.commentField.value).subscribe(
+    this.debunkerServise.createComment(this.factId, this.userId, this.commentField.value).subscribe(
       response => {
         this.debunkerServise.getCommentsByFactId(this.factId).subscribe(
           response => {

@@ -27,6 +27,9 @@ export class DecisionComponent implements OnInit, OnDestroy {
   public aSubUpdateStatus: Subscription;
   public aSubSaveResumes: Subscription;
 
+  public subscriptionUser: Subscription;
+  public userId: string;
+
   public decisionForm = new FormGroup({
     decision: new FormControl('', [Validators.required]),
     text: new FormControl('', [Validators.required])
@@ -44,6 +47,9 @@ export class DecisionComponent implements OnInit, OnDestroy {
       this.inputId = arr[0];
       this.model = arr[1];
     });
+    this.subscriptionUser=this.debunkerServise.getUserById().subscribe(userId=>{
+      this.userId=userId.id;
+    })
   }
 
 
@@ -54,7 +60,7 @@ export class DecisionComponent implements OnInit, OnDestroy {
         let arr = [this.decisionForm.value.decision, this.decisionForm.value.text]
         this.utilService.setFormDataFromModal(arr);
         if (this.model === "1") {
-          this.debunkerServise.saveMaintopicResumes(this.inputId, this.utilService.users[0].id, this.decisionForm.value.text).subscribe(
+          this.debunkerServise.saveMaintopicResumes(this.inputId, this.userId, this.decisionForm.value.text).subscribe(
             () => {
               this._snackBar.open('Решение принято', 'Закрыть', {
                 duration: this.utilService.CLOSE_TIME
@@ -69,7 +75,7 @@ export class DecisionComponent implements OnInit, OnDestroy {
           )
         }
         if (this.model === "2") {
-           this.debunkerServise.saveFactResumes(this.inputId, this.utilService.users[0].id, this.decisionForm.value.text).subscribe(
+           this.debunkerServise.saveFactResumes(this.inputId, this.userId, this.decisionForm.value.text).subscribe(
             () => {
               this._snackBar.open('Решение принято', 'Закрыть', {
                 duration: this.utilService.CLOSE_TIME
@@ -102,6 +108,9 @@ export class DecisionComponent implements OnInit, OnDestroy {
     if (this.aSubSaveResumes) {
       this.aSubSaveResumes.unsubscribe();
     }
+    if (this.subscriptionUser) {
+      this.subscriptionUser.unsubscribe();
+    }
   }
 
 // методы для выставления значения поля isDisabled
@@ -114,7 +123,6 @@ export class DecisionComponent implements OnInit, OnDestroy {
     this.cheakActivateOk();
   }
   changeParam2(param: any) {
-    debugger
     if (param !== null && !this.utilService.isEmptyOrSpaces(param)) {
       this.param2 = 1;
     } else {

@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnDestroy, OnInit } from '@angular/core';
 import {Fact} from "../../shared/classes/Fact";
 import {UtilService} from "../../shared/services/util.service";
 import {Comment} from "../../shared/interfaces";
